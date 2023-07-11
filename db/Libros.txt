@@ -1,0 +1,9 @@
+ISBN: 9780061120084 | Titulo: To Kill a Mockingbird | Autor: Harper Lee | Estado: P | DNI: 38831321
+ISBN: 9780142424179 | Titulo: The Catcher in the Rye | Autor: J.D. Salinger | Estado: L | DNI: 0
+ISBN: 9780062315007 | Titulo: 1984 | Autor: George Orwell | Estado: L | DNI: 0
+ISBN: 9780544003415 | Titulo: The Hobbit | Autor: J.R.R. Tolkien | Estado: L | DNI: 0
+ISBN: 9780060256654 | Titulo: Where the Wild Things Are | Autor: Maurice Sendak | Estado: L | DNI: 0
+ISBN: 9780141439587 | Titulo: Pride and Prejudice | Autor: Jane Austen | Estado: L | DNI: 0
+ISBN: 9780064400558 | Titulo: Matilda | Autor: Roald Dahl | Estado: L | DNI: 0
+ISBN: 9781451673319 | Titulo: The Great Gatsby | Autor: F. Scott Fitzgerald | Estado: L | DNI: 0
+ISBN: 9780143127550 | Titulo: The Fault in Our Stars | Autor: John Green | Estado: L| DNI: 0
