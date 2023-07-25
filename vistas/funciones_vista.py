@@ -54,6 +54,7 @@ def submenu_prestamos():
     print("╚═════════════════════════════════════╝")
     print("                                       ")
 
+
 def mostrar_mensaje_error():
     print("                                        ")
     print("╔══════════════════════════════════════╗")
@@ -62,6 +63,7 @@ def mostrar_mensaje_error():
     print("║ Debe ingresar un Nº de opción válido ║")
     print("╚══════════════════════════════════════╝")
     print("                                        ")
+
 
 def mensaje_dato_no_encontrado():
     print("                                        ")
@@ -72,6 +74,7 @@ def mensaje_dato_no_encontrado():
     print("╚══════════════════════════════════════╝")
     print("                                        ")
 
+
 def Salir():
     print("                                        ")
     print("╔══════════════════════════════════════╗")
@@ -80,6 +83,7 @@ def Salir():
     print("║            Vuelva Pronto!            ║")
     print("╚══════════════════════════════════════╝")
     print("                                        ")
+
 
 def limpiar_consola():
     # Diferentes comandos para limpiar la consola en distintos sistemas operativos

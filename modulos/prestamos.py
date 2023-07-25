@@ -3,20 +3,25 @@ ruta_libros ="db\\Libros.txt"
 ruta_clientes ="db\\Clientes.txt"
 
 def libros_disponibles():
-    print("Libros disponibles:")
+    print("Libros disponibles: ")
     print("")
+
     libros_disponibles = False
 
     with open(ruta_libros, 'r') as archivo_libros:
         for linea in archivo_libros:
-            libro_info = linea.strip().split('|')  
-            estado_libro = libro_info[3].strip().split(': ')[1]  
-            if estado_libro == 'L':  
+
+            libro_info = linea.strip().split(',')  
+            estado_libro = libro_info[3].strip()
+
+            if estado_libro == 'Disponible':  
+
                 libros_disponibles = True
+
                 isbn = libro_info[0].strip()  
                 titulo = libro_info[1].strip()  
                 autor = libro_info[2].strip()  
-                print(f"{isbn} | {titulo} | {autor}")
+                print(f"{isbn} - {titulo} - {autor}")
 
     if not libros_disponibles:
         print("No hay libros disponibles.")
@@ -26,10 +31,13 @@ def libros_disponibles():
 def registro_prestamo(isbn, dni):
 
     dni_existe = False
+
     with open(ruta_clientes, 'r') as archivo:
+       
         for linea in archivo:
             cliente_info = linea.strip().split(',')
             dni_db = cliente_info[0].strip()
+            
             if dni_db == dni:
                 dni_existe = True
                 break
@@ -40,10 +48,14 @@ def registro_prestamo(isbn, dni):
 
 
     isbn_existe = False
+
     with open(ruta_libros, 'r') as archivo:
+
         for linea in archivo:
-            libro_info = linea.strip().split('|')
-            isbn_db = libro_info[0].strip().split(': ')[1]
+
+            libro_info = linea.strip().split(',')
+            isbn_db = libro_info[0].strip()
+
             if isbn_db == isbn:
                 isbn_existe = True
                 break
@@ -58,11 +70,11 @@ def registro_prestamo(isbn, dni):
 
     with open(ruta_libros, 'w') as archivo:
         for linea in lineas:
-            libro_info = linea.strip().split('|')
-            isbn_db = libro_info[0].strip().split(': ')[1]
+            libro_info = linea.strip().split(',')
+            isbn_db = libro_info[0].strip()
 
             if isbn_db == isbn:
-                archivo.write(f"ISBN: {isbn} |{libro_info[1]}|{libro_info[2]}| Estado: P | DNI: {dni}\n")
+                archivo.write(f"{isbn},{libro_info[1]},{libro_info[2]},Ocupado,{dni}\n")
             else:
                 archivo.write(linea)
 
@@ -80,11 +92,12 @@ def registro_prestamo(isbn, dni):
                 archivo.write(linea)
 
     print("Préstamo registrado con éxito.")
-    return 'OK'
+    return ''
 
 
 
 def devolver_libro(isbn, dni):
+    
     libro_encontrado = False
     cliente_encontrado = False
     nuevos_libros = []
@@ -93,13 +106,18 @@ def devolver_libro(isbn, dni):
         libros = archivo.readlines()
 
     for registro in libros:
-        libro_info = registro.strip().split('|')
-        if libro_info[0].strip().split(': ')[1] == str(isbn):
-            if libro_info[3].strip().split(': ')[1] == 'P':
+        libro_info = registro.strip().split(',')
+
+        if libro_info[0].strip() == str(isbn):
+
+            if libro_info[3].strip()=='Ocupado':
+
                 libro_encontrado = True
-                libro_info[3] = " Estado: L "
-                libro_info[4] = " DNI: 0"
-            registro_actualizado = '|'.join(libro_info)
+
+                libro_info[3] = "Disponible"
+                libro_info[4] = "0"
+                
+            registro_actualizado = ','.join(libro_info)
             nuevos_libros.append(registro_actualizado + '\n')
         else:
             nuevos_libros.append(registro)
@@ -112,14 +130,19 @@ def devolver_libro(isbn, dni):
         clientes = archivo.readlines()
 
     nuevos_clientes = []
+
     for cliente in clientes:
+
         cliente_info = cliente.strip().split(',')
         dni_db = cliente_info[0].strip()
         isbn_cliente = cliente_info[7].strip()
+
         if dni_db == str(dni):
+
             if isbn_cliente == str(isbn):
                 cliente_encontrado = True
                 cliente_info[7] = "NULL"
+
         nuevo_cliente = ','.join(cliente_info)
         nuevos_clientes.append(nuevo_cliente + '\n')
 
@@ -134,7 +157,7 @@ def devolver_libro(isbn, dni):
         archivo.writelines(nuevos_clientes)
 
     print("Libro devuelto correctamente.")
-    return 'OK'
+    return ''
 
 
 # ------------------------------------------------------------------------- CONTROLADORES ------------------------------------------------------------------------------ #

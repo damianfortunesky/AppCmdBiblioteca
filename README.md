@@ -2,6 +2,7 @@
 
 Aplicacion de consola en python. Trabajo Final Algoritmos IFTS24
 
+
 MAIN.PY
 
     Este módulo contiene el programa principal que ejecuta la interacción con el usuario a través de menús y opciones. 
@@ -9,6 +10,8 @@ MAIN.PY
     Permite seleccionar diferentes acciones relacionadas con clientes, libros y préstamos.
 
     Función principal que ejecuta el programa y muestra los menús de opciones al usuario.  -> programa()
+
+
 
 
 
@@ -37,6 +40,9 @@ MODULO CLIENTES.PY
         Modifica los datos del cliente. Llama a la función modificar_datos_cliente()                                    -> pedir_datos_modificacion_cliente()
 
 
+
+
+
 MODULO LIBROS.PY
     
     Este módulo proporciona funciones para gestionar libros en un sistema. Permite buscar libros, dar de alta, dar de baja, modificar y consultar libros.
@@ -45,20 +51,12 @@ MODULO LIBROS.PY
 
         Busca un libro en el sistema mediante su ISBN.                      -> buscar_libro(isbn)
     
-        Da de alta un nuevo libro en el sistema.                            -> alta_libro(isbn, titulo, autor, estado="L", DNI=0)
+        Da de alta un nuevo libro en el sistema.                            -> alta_libro(isbn, titulo, autor, estado="Disponible", DNI=0)
 
         Da de baja un libro existente en el sistema.                        -> baja_libro(isbn)
     
-        Modifica un campo específico de un libro existente en el sistema.   -> modificar_libro(isbn, campo, valor)
+        Modifica un campo específico de un libro existente en el sistema.   -> modificar_libro(isbn, nombre, autor)
 
-
-    Funciones que manejan las solicitudes:
-
-        Muestra en pantalla la lista de libros disponibles para préstamo en el sistema. -> libros_disponibles()
-
-        Registra un préstamo de libro en el sistema.                                    -> registro_prestamo(isbn, dni)
-
-        Registra la devolución de un libro prestado en el sistema.                      -> devolver_libro(isbn, dni)
 
 
 
@@ -71,7 +69,7 @@ MODULO PRESTAMOS.PY
     
         Registra un préstamo de libro en el sistema.                ->  registro_prestamo(isbn, dni)
     
-        Registra la devolución de un libro prestado en el sistema.  -> devolver_libro(isbn, dni)
+        Registra la devolución de un libro prestado en el sistema.  ->  devolver_libro(isbn, dni)
     
 
     Funciones que manejan las solicitudes:
@@ -79,6 +77,8 @@ MODULO PRESTAMOS.PY
         Solicita al usuario el ISBN del libro y el DNI del cliente para registrar un nuevo préstamo.                -> pedir_datos_alta_prestamo()
 
         Solicita al usuario el ISBN del libro y el DNI del cliente para registrar la devolución de un préstamo.     -> pedir_datos_devolucion_prestamo()
+
+
 
 
 

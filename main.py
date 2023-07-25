@@ -13,8 +13,8 @@ def programa():
 
     while estado_menu_principal:
         
-        if estado_menu_principal:
-            mostrar_menu_principal()        
+        if estado_menu_principal:           
+            mostrar_menu_principal()  
         try:
             opcion = int(input("Elige el numero de opción deseada: "))
             estado_menu_principal = False
